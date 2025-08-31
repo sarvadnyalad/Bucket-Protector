@@ -10,10 +10,9 @@ Using the AWS Free Tier, I intentionally exposed a bucket to the public, proved 
 2. [What You’ll Learn](#-what-youll-learn)
 3. [Architecture](#-architecture)
 4. [Step-by-Step Demo](#-step-by-step-demo)
-5. [Key Policies](#-key-policies)
-6. [Validation & Testing](#-validation--testing)
-7. [Lessons Learned](#-lessons-learned)
-8. [Recruiter-Friendly Explanation](#-recruiter-friendly-explanation)
+5. [Validation & Testing](#-validation--testing)
+6. [Lessons Learned](#-lessons-learned)
+7. [Recruiter-Friendly Explanation](#-recruiter-friendly-explanation)
 
 ---
 
@@ -83,44 +82,6 @@ This project simulates a **real-world S3 security incident** and walks through t
 
 ---
 
-## 🔑 Key Policies
-
-### 🚨 Insecure Public-Read Policy
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "AllowPublicRead",
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::my-public-demo-bucket/*"
-    }
-  ]
-}
-```
-
-### ✅ Secure Least-Privilege Policy
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "ListBucket",
-      "Effect": "Allow",
-      "Action": "s3:ListBucket",
-      "Resource": "arn:aws:s3:::my-private-demo-bucket"
-    },
-    {
-      "Sid": "ReadObjects",
-      "Effect": "Allow",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::my-private-demo-bucket/*"
-    }
-  ]
-}
-```
 
 ---
 
