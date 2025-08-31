@@ -1,1 +1,3 @@
-hello world
+Hello World! 👋
+This file was uploaded to demonstrate a public S3 bucket.
+If you can see this without logging in, the bucket is exposed.
